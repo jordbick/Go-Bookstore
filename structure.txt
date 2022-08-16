@@ -1,0 +1,25 @@
+CMD:
+main.go
+
+PKG:
+config = app.go (connect to DB)
+controllers = book-controller (Handles HTTP requests and sends responses back to presentation layer)
+models = book.go (structs and models that will be used by our DB)
+routes = bookstore-routes (routes of different functions "/book" "/book/{id}")
+utils = utils.go (code for marshalling and unmarshalling json from our response and request)
+
+Routes:
+HTTP REQUEST -> Route -> Controller Function
+GET -> /book -> getBooks
+GET -> /book/{id} -> getBook
+POST -> /book -> createBook
+etc.
+
+User interacts with the routes
+The routes send control to the controllers
+Controllers perform some operations with the DB
+The operations to interact with the DB live inside the models file
+Config sets up the DB (which the models call upon)
+
+
+In main we set up the server and where our routers reside
